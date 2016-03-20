@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.21.0",
-    "spotify-web-api-node": "^2.2.0"
+    "spotify-web-api-js": "^0.18.1"
   }
 }

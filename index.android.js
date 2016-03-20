@@ -13,6 +13,9 @@ import React, {
 } from 'react-native';
 import Search from './components/Search';
 
+import SpotifyWebApi from 'spotify-web-api-js';
+var spotify = new SpotifyWebApi();
+
 class UltimatePlaylistApp extends Component {
 
   constructor(props) {
@@ -25,7 +28,13 @@ class UltimatePlaylistApp extends Component {
   render() {
     return (
       <Search
-        onSubmit = {(text) => {console.log(text)}}/>
+        onSubmit = {(text) => {
+          spotify.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function(err, data) {
+            if (err) console.error(err);
+            else console.log('Artist albums', data);
+          });
+        }}
+      />
     );
   }
   
