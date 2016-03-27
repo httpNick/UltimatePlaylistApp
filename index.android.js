@@ -11,10 +11,8 @@ import React, {
   TextInput,
   View
 } from 'react-native';
-import Search from './components/Search';
 
-import SpotifyWebApi from 'spotify-web-api-js';
-var spotify = new SpotifyWebApi();
+import App from './components/app';
 
 class UltimatePlaylistApp extends Component {
 
@@ -27,37 +25,11 @@ class UltimatePlaylistApp extends Component {
 
   render() {
     return (
-      <Search
-        onSubmit = {(text) => {
-          spotify.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function(err, data) {
-            if (err) console.error(err);
-            else console.log('Artist albums', data);
-          });
-        }}
-      />
+      <App />
     );
   }
   
   
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('UltimatePlaylistApp', () => UltimatePlaylistApp);

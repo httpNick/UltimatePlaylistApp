@@ -20,9 +20,8 @@ class Search extends React.Component {
   render() {
 
     return(
-      <View>
         <TextInput
-          style={{height: 40, borderColor: 'green', borderWidth: 1}}
+          style={{height: 40, borderColor: 'green', borderWidth: 1, flex: 1}}
           onChangeText={(text) => this.setState({text: text})}
           value={this.state.text}
           onSubmitEditing={(event) => {
@@ -32,8 +31,6 @@ class Search extends React.Component {
 
           }}
         />
-        <Text>{this.state.textDisplayed}</Text>
-      </View>
 
     );
 
