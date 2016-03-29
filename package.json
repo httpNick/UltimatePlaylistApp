@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "q": "^1.4.1",
     "react-native": "^0.21.0",
     "react-native-button": "^1.4.2",
     "spotify-web-api-js": "^0.18.1"

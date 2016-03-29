@@ -4,6 +4,11 @@ import React, {
   View
 } from 'react-native';
 
+import SpotifyWebApi from 'spotify-web-api-js';
+import q from 'q';
+
+let spotify;
+
 class Search extends React.Component {
 
   constructor(props) {
@@ -15,6 +20,23 @@ class Search extends React.Component {
       textDisplayed : ''
     };
 
+    spotify = new SpotifyWebApi();
+    spotify.setPromiseImplementation(q);
+
+  }
+  
+  onSubmit(text) {
+    spotify.searchArtists(
+      text,
+      { limit : 5 }
+    ).then((data) => {
+        return data;
+      }, (err) => {
+        return err;
+      }).then((res) => {
+        this.props.navigator.push({ id: 'AlbumList', message: res});
+    });
+
   }
 
   render() {
@@ -25,10 +47,8 @@ class Search extends React.Component {
           onChangeText={(text) => this.setState({text: text})}
           value={this.state.text}
           onSubmitEditing={(event) => {
-
-          this.setState({textDisplayed : event.nativeEvent.text});
-          this.props.onSubmit(event.nativeEvent.text);
-
+            this.setState({textDisplayed : event.nativeEvent.text});
+            this.onSubmit(event.nativeEvent.text);
           }}
         />
 

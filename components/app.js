@@ -5,25 +5,23 @@ import React, {
   TouchableHighlight
 } from 'react-native';
 
-import SpotifyWebApi from 'spotify-web-api-js';
-
-var spotify = new SpotifyWebApi();
-
 import Search from './Search';
 
 var App = React.createClass({
   renderScene: function(route, nav) {
     switch (route.id) {
 
+      case 'AlbumList' :
+        return (
+          <Artists
+            message={route.message}
+            navigator={nav}
+          />
+        );
+
       default:
         return (
           <Search
-            onSubmit = {(text) => {
-              spotify.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function(err, data) {
-                if (err) console.error(err);
-                else console.log('Artist albums', data);
-              });
-            }}
             message={route.message}
             navigator={nav}
           />
@@ -37,7 +35,7 @@ var App = React.createClass({
 
         <Navigator
           sceneStyle={styles.container}
-          initialRoute={{ message: 'Search', }}
+          initialRoute={{ message: 'Search' }}
           renderScene={this.renderScene}
           configureScene={() => {
             return Navigator.SceneConfigs.FloatFromBottom;
