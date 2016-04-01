@@ -34,7 +34,7 @@ class Search extends React.Component {
       }, (err) => {
         return err;
       }).then((res) => {
-        this.props.navigator.push({ id: 'AlbumList', message: res});
+        this.props.navigator.replace({ id: 'AlbumList', message: res});
     });
 
   }

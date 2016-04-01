@@ -6,6 +6,7 @@ import React, {
 } from 'react-native';
 
 import Search from './Search';
+import Artists from './Artists';
 
 var App = React.createClass({
   renderScene: function(route, nav) {
@@ -17,6 +18,7 @@ var App = React.createClass({
             message={route.message}
             navigator={nav}
           />
+
         );
 
       default:
@@ -37,9 +39,9 @@ var App = React.createClass({
           sceneStyle={styles.container}
           initialRoute={{ message: 'Search' }}
           renderScene={this.renderScene}
-          configureScene={() => {
+          /*configureScene={() => {
             return Navigator.SceneConfigs.FloatFromBottom;
-          }}
+          }}*/
         />
 
     );
