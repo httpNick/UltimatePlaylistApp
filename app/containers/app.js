@@ -1,15 +1,19 @@
 import React, {
   Navigator,
+  Component
   StyleSheet,
   Text,
   TouchableHighlight
 } from 'react-native';
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
 
-import Search from './Search';
-import Artists from './Artists';
+import Search from './../components/Search';
+import Artists from './../components/Artists';
 
-var App = React.createClass({
-  renderScene: function(route, nav) {
+class UltimatePlaylistApp extends Component {
+
+  renderScene(route, nav) {
     switch (route.id) {
 
       case 'AlbumList' :
@@ -30,9 +34,9 @@ var App = React.createClass({
         );
 
     }
-  },
+  }
 
-  render: function() {
+  render() {
     return (
 
         <Navigator
@@ -47,7 +51,7 @@ var App = React.createClass({
     );
   }
 
-});
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -59,7 +63,6 @@ const styles = StyleSheet.create({
   }
 });
 
-
-App.external = true;
-
-module.exports = App;
+export default connect(state => ({
+  
+}))(UltimatePlaylistApp);

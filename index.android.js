@@ -12,7 +12,7 @@ import React, {
   View
 } from 'react-native';
 
-import App from './components/app';
+import App from 'app/containers/app';
 
 class UltimatePlaylistApp extends Component {
 
