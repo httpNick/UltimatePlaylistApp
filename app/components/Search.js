@@ -26,16 +26,6 @@ class Search extends React.Component {
   }
   
   onSubmit(text) {
-    spotify.searchArtists(
-      text,
-      { limit : 5 }
-    ).then((data) => {
-        return data;
-      }, (err) => {
-        return err;
-      }).then((res) => {
-        this.props.navigator.replace({ id: 'AlbumList', message: res});
-    });
 
   }
 
